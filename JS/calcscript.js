@@ -1,4 +1,3 @@
-
 function appendValue(value) {
     document.getElementById("display").value += value;
 }
@@ -9,10 +8,51 @@ function clearDisplay() {
 
 function calculateResult() {
     try {
-        var result = eval(document.getElementById("display").value);
+        var expression = document.getElementById("display").value;
+
+        expression = expression.replace(/factorial\((\d+)\)/g, function(match, num) {
+            return factorial(parseInt(num));
+        });
+
+        expression = expression.replace(/naturalLogarithm\(([\d.]+)\)/g, function(match, num) {
+            return naturalLogarithm(parseFloat(num));
+        });
+
+        expression = expression.replace(/cube\(([\d.]+)\)/g, function(match, num) {
+            return cube(parseFloat(num));
+        });
+
+        expression = expression.replace(/square\(([\d.]+)\)/g, function(match, num) {
+            return square(parseFloat(num));
+        });
+
+        expression = expression.replace(/cubeRoot\(([\d.]+)\)/g, function(match, num) {
+            return cubeRoot(parseFloat(num));
+        });
+
+        expression = expression.replace(/logarithmBase2\(([\d.]+)\)/g, function(match, num) {
+            return logarithmBase2(parseFloat(num));
+        });
+
+        expression = expression.replace(/inverse\(([\d.]+)\)/g, function(match, num) {
+            return inverse(parseFloat(num));
+        });
+
+        expression = expression.replace(/powerOfTen\(([\d.]+)\)/g, function(match, num) {
+            return powerOfTen(parseFloat(num));
+        });
+
+        var result = eval(expression);
+        if (isNaN(result) || !isFinite(result)) {
+            throw new Error("Invalid expression");
+        }
         document.getElementById("display").value = result;
     } catch (error) {
-        document.getElementById("display").value = "Error";
+        if (error.message === "Division by zero") {
+            document.getElementById("display").value = "Division by zero";
+        } else {
+            document.getElementById("display").value = "Invalid expression";
+        }
     }
 }
 
@@ -25,6 +65,14 @@ function factorial(n) {
     }
     return n;
 }
+
+function naturalLogarithm(x) {
+    if (x <= 0) {
+        throw new Error("Invalid input for logarithm function");
+    }
+    return Math.log(x);
+}
+
 function cube(x) {
     return Math.pow(x, 3);
 }
@@ -47,8 +95,4 @@ function inverse(x) {
 
 function powerOfTen(x) {
     return Math.pow(10, x);
-}
-
-function naturalLogarithm(x) {
-    return Math.log(x);
 }
