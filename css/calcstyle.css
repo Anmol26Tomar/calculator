@@ -1,5 +1,4 @@
 body {
-    height: 100vh;
     background: repeating-linear-gradient(
         45deg,
         #333,
@@ -8,8 +7,11 @@ body {
         #51eb4b 100px
     );
     font-family: "Arial", sans-serif;
-    margin: 50px auto;
-    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 #calculator-wrapper {
@@ -17,8 +19,8 @@ body {
     border-radius: 10px;
     border: 10px solid #51eb4b;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    display: inline-block;
     padding: 20px;
+    text-align: center;
 }
 
 #calculator {
@@ -63,4 +65,14 @@ button:hover {
     font-size: 20px;
     margin-top: 10px;
     border: 4px red;
+}
+/* Small Screen */
+@media only screen and (max-width: 600px) {
+    #calculator {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    button {
+        font-size: 18px;
+        padding: 10px;
+    }
 }
