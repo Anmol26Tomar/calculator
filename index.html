@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Scientific Calculator</title>
-<link rel="stylesheet" href="css/calcstyle.css">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scientific Calculator</title>
+        <link rel="stylesheet" href="css/calcstyle.css">
+        <script defer src="JS/calcscript.js"></script>
 </head>
 <body>
 <div id="calculator-wrapper">
@@ -19,7 +20,9 @@
         <button onclick="appendValue('7')">7</button>
         <button onclick="appendValue('8')">8</button>
         <button onclick="appendValue('9')">9</button>
+        <button></button>
         <button onclick="appendValue('0')">0</button>
+        <button></button>
         <button onclick="appendValue('+')">+</button>
         <button onclick="appendValue('-')">-</button>
         <button onclick="appendValue('*')">*</button>
@@ -33,16 +36,15 @@
         <button onclick="appendValue('Math.abs(')">|ABS|</button>
         <button onclick="appendValue('**')">^</button>
         <button onclick="appendValue('factorial(')">!</button>
-        <button onclick="appendValue('Math.random()')">Random</button>
+        <!-- <button onclick="appendValue('Math.random()')">Random</button> -->
         <button onclick="appendValue('Math.exp(')">e^</button>
         <button onclick="appendValue('(')">(</button>
         <button onclick="appendValue(')')">)</button>
-        <!-- <button onclick="appendValue('Math.floor(')">[.]</button> -->
+        <button onclick="appendValue('Math.floor(')">[.]</button>
         <button onclick="clearDisplay()">C</button>
         <button onclick="deleteLastCharacter()">Delete</button>
         <button onclick="calculateResult()">=</button>
     </div>
 </div>
-<script src="JS/calcscript.js"></script>
 </body>
 </html>
