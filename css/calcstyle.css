@@ -1,11 +1,17 @@
 body {
-    background: repeating-linear-gradient(
+   /*  background: repeating-linear-gradient(
         45deg,
         #333,
         #333 50px,
         #51eb4b 50px,
         #51eb4b 100px
-    );
+    ); */
+    /* BACKGROUND GRADIENT */
+    background: #1D976C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93F9B9, #1D976C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-color: #000;
     font-family: "Arial", sans-serif;
     margin: 0;
     display: flex;
@@ -26,8 +32,9 @@ body {
 #calculator {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr); 
 }
+
 
 input {
     background-color: #444;
@@ -52,7 +59,9 @@ button {
     padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-
+#digits{
+        border: 3px solid green;  
+}
 button:hover {
     background-color: #51eb4b;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
